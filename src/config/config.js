@@ -5,3 +5,4 @@ export const USERNAME = process.env.POSTGRES_USERNAME
 export const PASSWORD = process.env.POSTGRES_PASSWORD
 export const POSTGRES_HOST = process.env.POSTGRES_HOST
 export const POSTGRES_PORT = process.env.POSTGRES_PORT
+export const JWT_SECRET = process.env.JWT_SECRET

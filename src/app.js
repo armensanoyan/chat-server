@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
+import 'dotenv/config'
 
 import { CORS, PORT } from './config/config.js'
 import healthApi from './api/health.js'
@@ -9,8 +10,6 @@ import api from './api/index.js'
 import { ErrorHandler } from './middleware/error-handler.js'
 
 const app = express()
-
-app.use(express.static('build'))
 
 /**
  * Middleware which setups the `morgan` logger.

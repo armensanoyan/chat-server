@@ -11,9 +11,12 @@ const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
 
 const db = {
   sequelize,
-  Users: Users(sequelize),
-  Chats: Chats(sequelize)
+  UsersModel: Users(sequelize),
+  ChatsModel: Chats(sequelize)
 }
+
+db.UsersModel.hasMany(db.ChatsModel, { foreignKey: 'fromUserId' })
+db.UsersModel.hasMany(db.ChatsModel, { foreignKey: 'toUserId' })
 
 // Test the connection
 async function testConnection () {

@@ -1,5 +1,4 @@
 import { DataTypes } from 'sequelize'
-import Users from './users.js'
 
 const ModelDefinition = () => {
   return {
@@ -18,18 +17,10 @@ const ModelDefinition = () => {
         allowNull: false
       },
       fromUserId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: Users,
-          key: 'id'
-        }
+        type: DataTypes.INTEGER
       },
       toUserId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: Users,
-          key: 'id'
-        }
+        type: DataTypes.INTEGER
       },
       avatar: {
         type: DataTypes.STRING,

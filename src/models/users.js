@@ -15,7 +15,7 @@ const ModelDefinition = () => {
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
       email: {
         type: DataTypes.STRING,
@@ -27,11 +27,13 @@ const ModelDefinition = () => {
       },
       role: {
         type: DataTypes.ENUM('admin', 'user'),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'user'
       },
       status: {
         type: DataTypes.ENUM('active', 'inactive', 'deleted', 'blocked'),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'active' // should be 'inactive' till email verification is done
       }
     },
     options: {

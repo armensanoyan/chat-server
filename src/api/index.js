@@ -1,10 +1,8 @@
 import Router from 'express'
-import { handleGet } from '../utils/success-handler.js'
+import Authorization from './authorization/authorization.js'
 
 const router = Router()
 
-router.use('/', (req, res, next) => {
-  return handleGet(res, { message: 'Welcome to the API' })
-})
+router.use('/auth', Authorization)
 
 export default router
