@@ -8,27 +8,17 @@ const ModelDefinition = () => {
         autoIncrement: true,
         primaryKey: true
       },
-      parentId: {
-        type: DataTypes.INTEGER,
-        allowNull: true
-      },
-      message: {
+      name: {
         type: DataTypes.TEXT,
         allowNull: false
-      },
-      fromUserId: {
-        type: DataTypes.INTEGER
-      },
-      toUserId: {
-        type: DataTypes.INTEGER
       },
       avatar: {
         type: DataTypes.STRING,
         allowNull: true
       },
       status: {
-        type: DataTypes.ENUM('sent', 'delivered', 'read', 'deleted'),
-        defaultValue: 'sent'
+        type: DataTypes.ENUM('active', 'inactive'),
+        defaultValue: 'active'
       }
     },
     options: {
