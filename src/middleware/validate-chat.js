@@ -25,6 +25,18 @@ export const validateUserAdd = (req, res, next) => {
   return next()
 }
 
+export const validateGeMessages = (req, res, next) => {
+  const schema = Joi.object({
+    chatId: Joi.number().required()
+  })
+
+  const { error } = schema.validate(req.params)
+  if (error) {
+    return next(new ValidationError(error?.message))
+  }
+  return next()
+}
+
 export const validateMessageAdd = (req, res, next) => {
   const schema = Joi.object({
     chatId: Joi.number().required(),
@@ -41,7 +53,6 @@ export const validateMessageAdd = (req, res, next) => {
 
 export const validateMessageDelete = (req, res, next) => {
   const schema = Joi.object({
-    chatId: Joi.number().required(),
     messageId: Joi.number().required()
   })
 

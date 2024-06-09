@@ -22,11 +22,11 @@ export const createMessage = ({ chatId, parentId, userId, message }) => {
   return models.MessagesModel.create({ userId, parentId, chatId, message })
 }
 
-export const deleteMessageFromChat = (chatId, messageId) => {
-  return models.MessagesModel.destroy({ where: { chatId, id: messageId } })
+export const deleteMessageFromChat = (messageId) => {
+  return models.MessagesModel.destroy({ where: { id: messageId } })
 }
 
-export const getMessages = (userId, chatId, limit = 20) => {
+export const getMessagesFromDB = (userId, chatId, limit = 20) => {
   return models.MessagesModel.findAll({
     where: { userId, chatId },
     order: [['createdAt', 'DESC']],
@@ -34,5 +34,3 @@ export const getMessages = (userId, chatId, limit = 20) => {
     raw: true
   })
 }
-getMessages(1, 1)
-  .then(console.log)

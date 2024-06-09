@@ -1,4 +1,4 @@
-import { checkIfUserExistsInChat, createMessage, deleteMessageFromChat } from '../../models/class-methods/messages.js'
+import { checkIfUserExistsInChat, createMessage, deleteMessageFromChat, getMessagesFromDB } from '../../models/class-methods/messages.js'
 import { createChatByName } from '../../models/class-methods/chat.js'
 import { insertUserToChat } from '../../models/class-methods/user-chat.js'
 // import { InternalError } from '../../utils/errors.js'
@@ -42,13 +42,24 @@ export const addMessageToChat = async (req, res, next) => {
   }
 }
 
-// return last 20 messages from chat
-export const deleteMessage = async (req, res, next) => {
-  const { chatId, messageId } = req.params // get userId from req.userId
+export const getMessages = async (req, res, next) => {
+  const { chatId } = req.params
   const { userId } = req
   try {
     await checkIfUserExistsInChat(chatId, userId)
-    await deleteMessageFromChat(chatId, messageId)
+    const savedMessage = await getMessagesFromDB(chatId, userId)
+
+    return handleAdd(res, savedMessage)
+  } catch (error) {
+    return next(error)
+  }
+}
+
+// return last 20 messages from chat
+export const deleteMessage = async (req, res, next) => {
+  const { messageId } = req.params // get userId from req.userId
+  try {
+    await deleteMessageFromChat(messageId)
 
     return handleDelete(res)
   } catch (error) {
