@@ -39,8 +39,8 @@ Since exporting socket collections is not possible in postman, that are not incl
 
 Here is a body example for socket create and delete events
 
+### Create
 ```json
-Create
 {
     "userId": 1,
     "chatId": 1,
@@ -48,7 +48,7 @@ Create
     "action": "delete"
 }
 ```
-Delete
+### Delete
 ```json
 {
     "messageId": 4,
