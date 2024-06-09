@@ -11,7 +11,7 @@ const ModelDefinition = () => {
       },
       firstName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
       lastName: {
         type: DataTypes.STRING,
