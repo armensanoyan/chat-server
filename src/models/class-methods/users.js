@@ -17,7 +17,3 @@ export const getUserByEmail = async (email) => {
     raw: true
   })
 }
-
-export const getUsers = async () => {
-  return UsersModel.findAll()
-}

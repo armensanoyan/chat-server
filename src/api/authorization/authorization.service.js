@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 import { AuthorizationError } from '../../utils/errors.js'
-import { addUser, getUsers, getUserByEmail } from '../../models/class-methods/users.js'
+import { addUser, getUserByEmail } from '../../models/class-methods/users.js'
 import { handleAdd, handleGet } from '../../utils/success-handler.js'
 import { JWT_SECRET } from '../../config/config.js'
 
@@ -17,11 +17,6 @@ export const register = async (req, res, next) => {
 
     return handleAdd(res, user)
   }
-}
-
-export const getAllUsers = async (req, res, next) => {
-  const users = await getUsers()
-  res.status(200).json(users)
 }
 
 export const login = async (req, res, next) => {
