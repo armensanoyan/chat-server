@@ -6,7 +6,7 @@ const router = Router()
 
 router.post('/register', validateUserCreate, register)
 router.post('/login', login)
-router.get('/logout', login)
+router.get('/logout', login) // TODO save user auth token in db to handle logout
 router.post('/all', getAllUsers)
 router.post('/delete', deleteUser)
 
