@@ -1,5 +1,5 @@
 import { Server as SocketIoServer } from 'socket.io'
-import { createMessage } from '../models/class-methods/messages.js'
+import { createMessage, deleteMessageFromChat } from '../models/class-methods/messages.js'
 
 // HTTP server setup
 const openConnection = (server) => {
@@ -9,10 +9,15 @@ const openConnection = (server) => {
     io.on('connection', socket => {
       console.log('A user connected')
 
-      socket.on('message', async ({ chatId, parentId, userId, message }) => {
-        const newMessage = await createMessage({ chatId, parentId, userId, message })
-
-        io.emit('message', newMessage)
+      socket.on('message', async (options) => {
+        if (options.action === 'add') {
+          const { chatId, parentId, userId, message } = options
+          const newMessage = await createMessage({ chatId, parentId, userId, message })
+          io.emit('message', newMessage)
+        } else if (options.action === 'delete') {
+          deleteMessageFromChat(options.messageId)
+          io.emit('message', options.messageId)
+        }
       })
 
       socket.on('disconnect', () => {
