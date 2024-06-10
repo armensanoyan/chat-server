@@ -2,16 +2,24 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
+import 'dotenv/config'
+import http from 'http'
 
-import { CORS, PORT } from './config/config.js'
+import { CORS, HOST, PORT } from './config/config.js'
 import healthApi from './api/health.js'
 import api from './api/index.js'
 import { ErrorHandler } from './middleware/error-handler.js'
+import openConnection from './lib/socket.js'
 
 const app = express()
+app.set('port', PORT)
 
-app.use(express.static('build'))
-
+/**
+ * Create HTTP server.
+ */
+const server = http.createServer(app)
+server.listen(PORT, HOST)
+openConnection(server)
 /**
  * Middleware which setups the `morgan` logger.
  */
@@ -44,7 +52,3 @@ app.use('/health', healthApi)
 app.use('/api', api)
 
 app.use(ErrorHandler)
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
-})

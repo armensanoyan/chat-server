@@ -1,5 +1,4 @@
 import { DataTypes } from 'sequelize'
-import Users from './users.js'
 
 const ModelDefinition = () => {
   return {
@@ -9,35 +8,17 @@ const ModelDefinition = () => {
         autoIncrement: true,
         primaryKey: true
       },
-      parentId: {
-        type: DataTypes.INTEGER,
-        allowNull: true
-      },
-      message: {
+      name: {
         type: DataTypes.TEXT,
         allowNull: false
-      },
-      fromUserId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: Users,
-          key: 'id'
-        }
-      },
-      toUserId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: Users,
-          key: 'id'
-        }
       },
       avatar: {
         type: DataTypes.STRING,
         allowNull: true
       },
       status: {
-        type: DataTypes.ENUM('sent', 'delivered', 'read', 'deleted'),
-        defaultValue: 'sent'
+        type: DataTypes.ENUM('active', 'inactive'),
+        defaultValue: 'active'
       }
     },
     options: {

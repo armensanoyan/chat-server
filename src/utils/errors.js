@@ -28,3 +28,39 @@ export class UnauthorizedError extends ApplicationInternalError {
     this.errorCode = 'BrowserUnauthorizedError'
   }
 }
+
+export class AuthorizationError extends ApplicationInternalError {
+  constructor (msg) {
+    super(msg)
+    this.name = this.constructor.name
+    this.statusCode = 401
+    this.errorCode = 'AuthorizationError'
+  }
+}
+
+export class ValidationError extends ApplicationInternalError {
+  constructor (msg) {
+    super(msg)
+    this.name = this.constructor.name
+    this.statusCode = 400
+    this.errorCode = 'InvalidateInputError'
+  }
+}
+
+export class ChatCreateError extends ApplicationInternalError {
+  constructor (msg) {
+    super(msg)
+    this.name = this.constructor.name
+    this.statusCode = 400
+    this.errorCode = 'ChatCreateError'
+  }
+}
+
+export class ChatNotFoundError extends ApplicationInternalError {
+  constructor (msg) {
+    super(msg)
+    this.name = this.constructor.name
+    this.statusCode = 400
+    this.errorCode = 'ChatCreateError'
+  }
+}
