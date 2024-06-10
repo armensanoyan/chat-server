@@ -1,6 +1,6 @@
 # Chat Server
 
-This is a chat server built with Node.js, Express, and Sequelize.
+This is a chat server built with Node.js, Express, Sequelize, Socket.io.
 
 ## Getting Started
 
