@@ -14,9 +14,9 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/chat-server.git
-
+```bash
+git clone https://github.com/yourusername/chat-server.git
+```
 ### Install NPM packages:
  ```bash
 npm run install
@@ -28,7 +28,7 @@ Before setting the schema you will need to create database with corresponding na
 npm run seed
   ```
 ### Set environment variables
-There is a .envExample file with example variables you can rename ht file to .env or create a new file with name .env and fill the variables
+There is a .envExample file with example variables you can rename it file to .env or create a new file with name .env and fill the variables
 ### Run the server:
   ```bash
 npm run start
