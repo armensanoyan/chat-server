@@ -1,6 +1,6 @@
 PORT=3000
 HOST=localhost
-POSTGRES_DATABASE=postgres
+POSTGRES_DATABASE=mydatabase
 POSTGRES_USERNAME=postgres
 POSTGRES_PASSWORD=mysecretpassword
 POSTGRES_HOST=localhost
