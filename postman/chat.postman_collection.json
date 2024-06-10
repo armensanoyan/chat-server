@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "auth",
+			"name": "user",
 			"item": [
 				{
 					"name": "register",
@@ -47,7 +47,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"password\"\n}",
+							"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"password\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -69,6 +69,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"delete"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -78,16 +108,6 @@
 				{
 					"name": "create chat",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJpYXQiOjE3MTc5NDE5NzMsImV4cCI6MTcxNzk0NTU3M30.-6LWZNJpkJwmUJ8CrCXGDkljgfZRsbCb8uK1v3v7s_A",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -118,16 +138,6 @@
 				{
 					"name": "add user to chat",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJpYXQiOjE3MTc4NjI0MDQsImV4cCI6MTcxNzg2NjAwNH0.soG9Rz_YTZRwKBtFu9Ylmc9-PXramkj63eNWjWdLOm0",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -158,16 +168,6 @@
 				{
 					"name": "delete message",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJpYXQiOjE3MTc4NjI0MDQsImV4cCI6MTcxNzg2NjAwNH0.soG9Rz_YTZRwKBtFu9Ylmc9-PXramkj63eNWjWdLOm0",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -200,21 +200,11 @@
 				{
 					"name": "add message",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJpYXQiOjE3MTc4NjI0MDQsImV4cCI6MTcxNzg2NjAwNH0.soG9Rz_YTZRwKBtFu9Ylmc9-PXramkj63eNWjWdLOm0",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"chatId\": 1,\n    \"message\": \"here is my first message\"\n}",
+							"raw": "{\n    \"chatId\": 2,\n    \"message\": \"here is my first message\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -243,16 +233,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJpYXQiOjE3MTc4NjY1MDIsImV4cCI6MTcxNzg3MDEwMn0.r5pr0lpJ-0X-5yZo5E7GCCwYl5ORXWpmItqsSUe_Trw",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -281,7 +261,61 @@
 					},
 					"response": []
 				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJ1c2VySWQiOjQ2LCJpYXQiOjE3MTgwNDM4MzgsImV4cCI6MTcxODA0NzQzOH0.F43nUoEOf9-oKRQZX2dJNsfXcoTRqRX4OYI0RozKRDE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
