@@ -23,10 +23,12 @@ npm run install
   ```
 
 ###  Set up database
+Before setting the schema you will need to create database with corresponding name and add that name in environment variables
 ```bash
 npm run seed
   ```
-
+### Set environment variables
+There is a .envExample file with example variables you can rename ht file to .env or create a new file with name .env and fill the variables
 ### Run the server:
   ```bash
 npm run start
