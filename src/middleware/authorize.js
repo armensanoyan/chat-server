@@ -8,7 +8,7 @@ export const verifyToken = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, JWT_SECRET)
     req.userId = decoded.userId
-    // check if user is soft deleted or blocked
+    // TODO check if user is soft deleted or blocked
 
     return next()
   } catch (error) {
