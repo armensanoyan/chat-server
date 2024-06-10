@@ -52,3 +52,5 @@ app.use('/health', healthApi)
 app.use('/api', api)
 
 app.use(ErrorHandler)
+
+export default server

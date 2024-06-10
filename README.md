@@ -40,6 +40,29 @@ All the endpoints are available in postman collections. There is user auth endpo
 Since exporting socket collections is not possible in postman, that are not included in collections. For socket connection same host and port is used
 
 Here is a body example for socket create and delete events
+### Use endpoints
+To test endpoints first create user by **register** endpoint 
+```bash
+{host:port}/api/auth/register
+```
+Then login to get jwttoken 
+```bash
+{host:port}/api/auth/login
+```
+After you get the token copy it. Open ***chatting*** folder, open the authorization section and choose authorization by bearer token and past the token there. Now you are able to send request as logged in user.
+
+To send messages first create a chat using ***create chat*** endpoint
+```bash
+{host:port}/api/chat/create
+```
+Then add a user to chat by ***add user to chat*** endpoint
+```bash
+{host:port}/api/chat/add-user
+```
+Now you are ready to send messages by ***add messages*** endpoint
+```bash
+{host:port}/api/chat/add-message
+```
 
 ### Create
 ```json

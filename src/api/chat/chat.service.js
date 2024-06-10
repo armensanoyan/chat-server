@@ -2,7 +2,7 @@ import { checkIfUserExistsInChat, createMessage, deleteMessageFromChat, getMessa
 import { createChatByName } from '../../models/class-methods/chat.js'
 import { insertUserToChat } from '../../models/class-methods/user-chat.js'
 // import { InternalError } from '../../utils/errors.js'
-import { handleAdd, handleDelete } from '../../utils/success-handler.js'
+import { handleAdd, handleDelete, handleGet } from '../../utils/success-handler.js'
 
 export const createChat = async (req, res, next) => {
   const { name } = req.body
@@ -49,7 +49,7 @@ export const getMessages = async (req, res, next) => {
     await checkIfUserExistsInChat(chatId, userId)
     const savedMessage = await getMessagesFromDB(chatId, userId)
 
-    return handleAdd(res, savedMessage)
+    return handleGet(res, savedMessage)
   } catch (error) {
     return next(error)
   }

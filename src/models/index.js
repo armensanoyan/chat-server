@@ -24,16 +24,4 @@ db.UsersModel.hasMany(db.UserChatModel, { foreignKey: 'userId' })
 db.ChatsModel.hasMany(db.UserChatModel, { foreignKey: 'chatId' })
 db.ChatsModel.hasMany(db.MessagesModel, { foreignKey: 'chatId' })
 
-// Test the connection
-async function testConnection () {
-  try {
-    await sequelize.authenticate()
-    console.log('Connection has been established successfully.')
-  } catch (error) {
-    console.error('Unable to connect to the database:', error)
-  }
-}
-
-testConnection()
-
 export default db
