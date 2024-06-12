@@ -85,3 +85,9 @@ Node.js
 Express
 Sequelize
 Socket.io
+
+### TODO
+1.	Implement CI/CD and testing on pull requests.
+2.	Use Redis to keep user tokens and remove tokens on logout.
+3.	Improve server scalability.
+4.	Add indexes for faster searches.
