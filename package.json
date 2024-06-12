@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest --detectOpenHandles  --forceExit",
     "start": "node --watch ./src/app.js",
-    "seed": "node scripts/seedDatabase.js"
+    "seed": "node scripts/seedDatabase.js",
+    "test": "npm run seed && jest --detectOpenHandles  --forceExit"
   },
   "keywords": [],
   "author": "",
